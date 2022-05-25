@@ -293,6 +293,17 @@ masked-iniciais
 NIL
 HORIZONTAL
 
+MONITOR
+31
+410
+88
+455
+dias
+ticks
+0
+1
+11
+
 @#$#@#$#@
 ## WHAT IS IT?
 

@@ -52,7 +52,7 @@ to setup-masked
     set infectado false
     set saudavel true
     set masked true
-    set color yellow
+    set color white
   ]
 end
 
@@ -204,7 +204,7 @@ chance-infeccao
 chance-infeccao
 0
 100
-94.0
+95.0
 1
 1
 %
@@ -287,7 +287,7 @@ masked-iniciais
 masked-iniciais
 0
 100
-13.0
+0.0
 1
 1
 NIL

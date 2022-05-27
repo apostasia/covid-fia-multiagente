@@ -27,6 +27,7 @@ to setup-pessoas
     set infectado false
     set saudavel true
     set recuperado false
+    set masked false
     set dias-infectado 0
     set color green
     set shape "person"
@@ -46,7 +47,7 @@ to setup-infectados
 end
 
 to setup-masked
-  ;;infecta o numero de pessoas indicado no slider infectados-iniciais
+  ;;determina o numero de pessoas indicado no slider masked-iniciais
   ask n-of masked-iniciais pessoas
   [
     set infectado false
@@ -287,7 +288,7 @@ masked-iniciais
 masked-iniciais
 0
 100
-0.0
+100.0
 1
 1
 NIL

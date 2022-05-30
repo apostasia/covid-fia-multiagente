@@ -212,10 +212,10 @@ chance-infeccao
 HORIZONTAL
 
 MONITOR
-30
-306
-205
-351
+26
+402
+201
+447
 Numero de saudaveis
 count pessoas with [saudavel = true]
 17
@@ -223,10 +223,10 @@ count pessoas with [saudavel = true]
 11
 
 MONITOR
-30
-359
-205
-404
+26
+455
+201
+500
 Numero de Infectados
 count pessoas with [infectado = true]
 17
@@ -234,10 +234,10 @@ count pessoas with [infectado = true]
 11
 
 MONITOR
-30
-256
-205
-301
+26
+352
+201
+397
 Numero de Recuperados
 count pessoas with [recuperado = true]
 17
@@ -280,30 +280,60 @@ PENS
 "recuperados" 1.0 0 -13345367 true "" "plot count pessoas with [recuperado = true]"
 
 SLIDER
-29
-220
-201
-253
+24
+269
+196
+302
 masked-iniciais
 masked-iniciais
 0
 100
-100.0
+99.0
 1
 1
 NIL
 HORIZONTAL
 
 MONITOR
-31
-410
-88
-455
+27
+506
+84
+551
 dias
 ticks
 0
 1
 11
+
+SLIDER
+25
+309
+197
+342
+mortalidade
+mortalidade
+0
+100
+2.0
+1
+1
+%
+HORIZONTAL
+
+SLIDER
+21
+230
+203
+263
+vacinados-iniciais
+vacinados-iniciais
+0
+100
+50.0
+1
+1
+NIL
+HORIZONTAL
 
 @#$#@#$#@
 ## WHAT IS IT?

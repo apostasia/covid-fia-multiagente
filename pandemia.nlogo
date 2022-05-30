@@ -95,9 +95,15 @@ to check-infeccao
   [
     ifelse dias-infectado >= dias-recuperacao ;;caso a pessoa ja esteja infectada pelo
     [                                         ;;numero de dias suficiente para se recuperar
-      set infectado false                     ;;ela muda seu estado para recuperado
+      ifelse mortalidade >= random 100
+      [
+        die
+      ]
+      [
+        set infectado false                     ;;ela muda seu estado para recuperado
       set recuperado true
-      set color blue
+        set color blue
+      ]
     ]
     [
       set dias-infectado (dias-infectado + 1)
@@ -288,7 +294,7 @@ masked-iniciais
 masked-iniciais
 0
 100
-99.0
+26.0
 1
 1
 NIL
@@ -314,7 +320,7 @@ mortalidade
 mortalidade
 0
 100
-2.0
+46.0
 1
 1
 %

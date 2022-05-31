@@ -11,6 +11,7 @@ turtles-own
 
 globals ;;variaveis globais
 [
+  mortos ;; número de mortos
 ]
 
 to setup
@@ -97,11 +98,12 @@ to check-infeccao
     [                                         ;;numero de dias suficiente para se recuperar
       ifelse mortalidade >= random 100
       [
+        set mortos (mortos + 1)
         die
       ]
       [
         set infectado false                     ;;ela muda seu estado para recuperado
-      set recuperado true
+        set recuperado true
         set color blue
       ]
     ]
@@ -301,10 +303,10 @@ NIL
 HORIZONTAL
 
 MONITOR
-27
-506
-84
-551
+28
+579
+85
+624
 dias
 ticks
 0
@@ -320,7 +322,7 @@ mortalidade
 mortalidade
 0
 100
-46.0
+1.0
 1
 1
 %
@@ -340,6 +342,17 @@ vacinados-iniciais
 1
 NIL
 HORIZONTAL
+
+MONITOR
+28
+507
+164
+552
+numero de mortos
+mortos
+17
+1
+11
 
 @#$#@#$#@
 ## WHAT IS IT?

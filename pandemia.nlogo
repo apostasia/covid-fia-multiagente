@@ -286,6 +286,7 @@ PENS
 "saudaveis" 1.0 0 -10899396 true "" "plot count pessoas with [saudavel = true]"
 "Infectados" 1.0 0 -2674135 true "" "plot count pessoas with [infectado = true]"
 "recuperados" 1.0 0 -13345367 true "" "plot count pessoas with [recuperado = true]"
+"mortos" 1.0 0 -8630108 true "" "plot mortos"
 
 SLIDER
 24
@@ -322,7 +323,7 @@ mortalidade
 mortalidade
 0
 100
-1.0
+82.0
 1
 1
 %

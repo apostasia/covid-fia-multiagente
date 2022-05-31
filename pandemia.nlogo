@@ -5,6 +5,7 @@ turtles-own
   infectado      ;;booleano
   saudavel       ;;booleano
   masked       ;;booleano
+  vacinado     ;;booleano
   recuperado     ;;booleano
   dias-infectado ;;dias desde infeccao
 ]
@@ -19,6 +20,7 @@ to setup
   setup-pessoas      ;;cria populacao
   setup-infectados   ;;infecta uma parte da populacao
   setup-masked
+  setup-vacinados
   reset-ticks
 end
 
@@ -52,9 +54,21 @@ to setup-masked
   ask n-of masked-iniciais pessoas
   [
     set infectado false
-    set saudavel true
+    ;;set saudavel true
     set masked true
     set color white
+  ]
+end
+
+to setup-vacinados
+  ;;determina o numero de pessoas indicado no slider masked-iniciais
+  ask n-of vacinados-iniciais pessoas
+  [
+    set infectado false
+    ;;set saudavel true
+    set masked true
+    set vacinado true
+    set color yellow
   ]
 end
 
@@ -77,16 +91,12 @@ to infect
   [
     ask turtles-on neighbors          ;;checa se os vizinhos sao saudaveis
     [                                 ;;para possivelmente infectar
-      if(saudavel = true) and (random 100 < chance-infeccao)
+      if((saudavel = true) and (random 100 < chance-infeccao)) or ((masked = true) and (random 100 < (chance-infeccao - mascara-eficacia))) or ((vacinado = true) and (random 100 < (chance-infeccao - eficacia-vacina)))
       [
-        if (masked != true)
-        [
-          set infectado true
-          set saudavel false
-          set color red
-        ]
+            set infectado true
+            set saudavel false
+            set color red
       ]
-
     ]
   ]
 end
@@ -220,10 +230,10 @@ chance-infeccao
 HORIZONTAL
 
 MONITOR
-26
-402
-201
-447
+21
+535
+196
+580
 Numero de saudaveis
 count pessoas with [saudavel = true]
 17
@@ -231,10 +241,10 @@ count pessoas with [saudavel = true]
 11
 
 MONITOR
-26
-455
-201
-500
+21
+588
+196
+633
 Numero de Infectados
 count pessoas with [infectado = true]
 17
@@ -242,10 +252,10 @@ count pessoas with [infectado = true]
 11
 
 MONITOR
-26
-352
-201
-397
+21
+485
+196
+530
 Numero de Recuperados
 count pessoas with [recuperado = true]
 17
@@ -286,28 +296,28 @@ PENS
 "saudaveis" 1.0 0 -10899396 true "" "plot count pessoas with [saudavel = true]"
 "Infectados" 1.0 0 -2674135 true "" "plot count pessoas with [infectado = true]"
 "recuperados" 1.0 0 -13345367 true "" "plot count pessoas with [recuperado = true]"
-"mortos" 1.0 0 -8630108 true "" "plot mortos"
+"mortas" 1.0 0 -8630108 true "" "plot mortos"
 
 SLIDER
-24
-269
-196
-302
+20
+325
+192
+358
 masked-iniciais
 masked-iniciais
 0
 100
-26.0
+100.0
 1
 1
 NIL
 HORIZONTAL
 
 MONITOR
-28
-579
-85
-624
+23
+712
+80
+757
 dias
 ticks
 0
@@ -315,29 +325,29 @@ ticks
 11
 
 SLIDER
-25
-309
-197
-342
+17
+416
+190
+449
 mortalidade
 mortalidade
 0
 100
-82.0
+1.0
 1
 1
 %
 HORIZONTAL
 
 SLIDER
-21
-230
-203
-263
+22
+226
+204
+259
 vacinados-iniciais
 vacinados-iniciais
 0
-100
+200
 50.0
 1
 1
@@ -345,15 +355,35 @@ NIL
 HORIZONTAL
 
 MONITOR
-28
-507
-164
-552
+23
+640
+159
+685
 numero de mortos
 mortos
 17
 1
 11
+
+CHOOSER
+24
+272
+162
+317
+eficacia-vacina
+eficacia-vacina
+50.38 70.04 95
+0
+
+CHOOSER
+21
+363
+168
+408
+mascara-eficacia
+mascara-eficacia
+40 78 89 98
+3
 
 @#$#@#$#@
 ## WHAT IS IT?

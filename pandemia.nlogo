@@ -311,6 +311,7 @@ PENS
 "recuperados" 1.0 0 -13345367 true "" "plot count pessoas with [recuperado = true]"
 "mortas" 1.0 0 -8630108 true "" "plot mortos"
 "vacinados saudaveis" 1.0 0 -1184463 true "" "plot count pessoas with [saudavel = true and vacinado = true]"
+"com mascara e saudaveis" 1.0 0 -7500403 true "" "plot count pessoas with [saudavel = true and masked = true]"
 
 SLIDER
 20
@@ -387,7 +388,7 @@ CHOOSER
 eficacia-vacina
 eficacia-vacina
 50.38 70.04 95
-0
+2
 
 CHOOSER
 21
@@ -397,7 +398,7 @@ CHOOSER
 mascara-eficacia
 mascara-eficacia
 40 78 89 98
-2
+0
 
 MONITOR
 304

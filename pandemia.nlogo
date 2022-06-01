@@ -31,6 +31,7 @@ to setup-pessoas
     set saudavel true
     set recuperado false
     set masked false
+    set vacinado false
     set dias-infectado 0
     set color green
     set shape "person"
@@ -54,7 +55,7 @@ to setup-masked
   ask n-of masked-iniciais pessoas
   [
     set infectado false
-    ;;set saudavel true
+    set saudavel true
     set masked true
     set color white
   ]
@@ -65,8 +66,7 @@ to setup-vacinados
   ask n-of vacinados-iniciais pessoas
   [
     set infectado false
-    ;;set saudavel true
-    set masked true
+    set saudavel true
     set vacinado true
     set color yellow
   ]
@@ -91,12 +91,25 @@ to infect
   [
     ask turtles-on neighbors          ;;checa se os vizinhos sao saudaveis
     [                                 ;;para possivelmente infectar
-      if((saudavel = true) and (random 100 < chance-infeccao)) or ((masked = true) and (random 100 < (chance-infeccao - mascara-eficacia))) or ((vacinado = true) and (random 100 < (chance-infeccao - eficacia-vacina)))
+      if((saudavel = true) and (masked != true) and (vacinado != true) and (random 100 < chance-infeccao))
       [
             set infectado true
             set saudavel false
             set color red
       ]
+      if(masked = true) and (random 100 < (chance-infeccao - mascara-eficacia))
+      [
+            set infectado true
+            set saudavel false
+            set color red
+      ]
+      if (vacinado = true) and (random 100 < (chance-infeccao - eficacia-vacina))
+      [
+            set infectado true
+            set saudavel false
+            set color red
+      ]
+
     ]
   ]
 end
@@ -297,6 +310,7 @@ PENS
 "Infectados" 1.0 0 -2674135 true "" "plot count pessoas with [infectado = true]"
 "recuperados" 1.0 0 -13345367 true "" "plot count pessoas with [recuperado = true]"
 "mortas" 1.0 0 -8630108 true "" "plot mortos"
+"vacinados saudaveis" 1.0 0 -1184463 true "" "plot count pessoas with [saudavel = true and vacinado = true]"
 
 SLIDER
 20
@@ -307,7 +321,7 @@ masked-iniciais
 masked-iniciais
 0
 100
-100.0
+60.0
 1
 1
 NIL
@@ -383,7 +397,29 @@ CHOOSER
 mascara-eficacia
 mascara-eficacia
 40 78 89 98
-3
+2
+
+MONITOR
+304
+610
+454
+655
+vacinados saudaveis
+count pessoas with [saudavel = true and vacinado = true]
+17
+1
+11
+
+MONITOR
+303
+663
+477
+708
+com mascara saudaveis
+count pessoas with [saudavel = true and masked = true]
+17
+1
+11
 
 @#$#@#$#@
 ## WHAT IS IT?

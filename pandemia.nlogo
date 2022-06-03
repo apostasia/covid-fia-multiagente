@@ -236,7 +236,7 @@ chance-infeccao
 chance-infeccao
 0
 100
-95.0
+96.0
 1
 1
 %
@@ -307,10 +307,10 @@ true
 "" ""
 PENS
 "saudaveis" 1.0 0 -10899396 true "" "plot count pessoas with [saudavel = true]"
-"Infectados" 1.0 0 -2674135 true "" "plot count pessoas with [infectado = true]"
-"recuperados" 1.0 0 -13345367 true "" "plot count pessoas with [recuperado = true]"
+"Infectadas" 1.0 0 -2674135 true "" "plot count pessoas with [infectado = true]"
+"recuperadas" 1.0 0 -13345367 true "" "plot count pessoas with [recuperado = true]"
 "mortas" 1.0 0 -8630108 true "" "plot mortos"
-"vacinados saudaveis" 1.0 0 -1184463 true "" "plot count pessoas with [saudavel = true and vacinado = true]"
+"vacinadas saudaveis" 1.0 0 -1184463 true "" "plot count pessoas with [saudavel = true and vacinado = true]"
 "com mascara e saudaveis" 1.0 0 -7500403 true "" "plot count pessoas with [saudavel = true and masked = true]"
 
 SLIDER
@@ -322,7 +322,7 @@ masked-iniciais
 masked-iniciais
 0
 100
-60.0
+0.0
 1
 1
 NIL
@@ -363,7 +363,7 @@ vacinados-iniciais
 vacinados-iniciais
 0
 200
-50.0
+0.0
 1
 1
 NIL
@@ -398,13 +398,13 @@ CHOOSER
 mascara-eficacia
 mascara-eficacia
 40 78 89 98
-0
+3
 
 MONITOR
-304
-610
-454
-655
+204
+485
+354
+530
 vacinados saudaveis
 count pessoas with [saudavel = true and vacinado = true]
 17
@@ -412,10 +412,10 @@ count pessoas with [saudavel = true and vacinado = true]
 11
 
 MONITOR
-303
-663
-477
-708
+203
+538
+377
+583
 com mascara saudaveis
 count pessoas with [saudavel = true and masked = true]
 17
